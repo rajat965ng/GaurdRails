@@ -7,14 +7,23 @@ import (
 	"gorm.io/gorm/clause"
 )
 
+// IRepositoryDao - dao
 type IRepositoryDao interface {
+	// Create a repository.
 	Create(repository *model.Repository) error
+	// FindAll returns all repositories
 	FindAll() ([]model.Repository, error)
+	// Update updates a repository.
 	Update(repository model.Repository) error
+	// Delete a repository.
 	Delete(name string) error
+	// AddScanDetails - Updates repository and saves findings.
 	AddScanDetails(repository model.Repository, status model.StatusType) error
+	// Updates the ScanDetails and SaveFindings.
 	UpdateScanDetails(scanDetail *model.ScanDetail, status model.StatusType) error
+	// Finds a repository by status
 	FindRepositoryByStatus(status model.StatusType) ([]model.Repository, error)
+	// SaveFindings saves the findings to the database.
 	SaveFindings(finding *model.Finding, scanDetail *model.ScanDetail) error
 }
 

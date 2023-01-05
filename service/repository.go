@@ -7,14 +7,23 @@ import (
 	"strings"
 )
 
+// IRepositoryService - a service that is a repository service.
 type IRepositoryService interface {
+	// Create a new repository.
 	Create(repo *model.Repository) error
+	// FindAll returns all repositories
 	FindAll() ([]model.Repository, error)
+	// Update updates a repository.
 	Update(repository model.Repository) error
+	// Delete a repository.
 	Delete(name string) error
+	// AddScanDetails adds details for a specific scan.
 	AddScanDetails(repository string, status model.StatusType) error
+	// ExecuteScanner executes a scanner
 	ExecuteScanner() error
+	// Finds repositories by status
 	FindByStatus(status model.StatusType) ([]model.Repository, error)
+	// Lists all findings.
 	ListFindings() (*model.FindingResponse, error)
 }
 

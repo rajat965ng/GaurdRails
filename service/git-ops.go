@@ -9,9 +9,13 @@ import (
 	"github.com/go-git/go-git/v5"
 )
 
+// IGitService
 type IGitService interface {
+	// Git clone.
 	GitClone() (string, error)
+	// GrepText - Grep text.
 	GrepText(patterns []string) ([]string, error)
+	// CleanUp cleans up the git repository from filesystem.
 	CleanUp() error
 }
 

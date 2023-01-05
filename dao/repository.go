@@ -8,7 +8,7 @@ import (
 )
 
 type IRepositoryDao interface {
-	Create(repository model.Repository) error
+	Create(repository *model.Repository) error
 	FindAll() ([]model.Repository, error)
 	Update(repository model.Repository) error
 	Delete(name string) error
@@ -26,8 +26,8 @@ func NewRepositoryDao() *repository {
 	return &repository{NewDatabaseInstance().GetConnection()}
 }
 
-func (dao *repository) Create(repo model.Repository) error {
-	dao.db.Debug().Create(&repo)
+func (dao *repository) Create(repo *model.Repository) error {
+	dao.db.Debug().Create(repo)
 	return nil
 }
 

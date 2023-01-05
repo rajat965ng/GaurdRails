@@ -8,7 +8,7 @@ import (
 )
 
 type IRepositoryService interface {
-	Create(repo model.Repository) error
+	Create(repo *model.Repository) error
 	FindAll() ([]model.Repository, error)
 	Update(repository model.Repository) error
 	Delete(name string) error
@@ -26,7 +26,7 @@ func NewRepositoryService() *repository {
 	return &repository{dao.NewRepositoryDao()}
 }
 
-func (svc *repository) Create(repo model.Repository) error {
+func (svc *repository) Create(repo *model.Repository) error {
 	return svc.repositoryDao.Create(repo)
 }
 

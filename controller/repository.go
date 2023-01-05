@@ -37,7 +37,7 @@ func (controller *repository) Create(c echo.Context) error {
 	defer lock.Unlock()
 	v := &model.Repository{}
 	c.Bind(v)
-	controller.repositoryService.Create(*v)
+	controller.repositoryService.Create(v)
 	return c.JSON(http.StatusCreated, v)
 }
 

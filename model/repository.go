@@ -43,6 +43,8 @@ type ScanDetail struct {
 	Findings     []Finding `json:"findings,omitempty" gorm:"foreignKey:ScanDetailId;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
+// ScanDetail findings
+// @Description scan findings
 type Finding struct {
 	gorm.Model
 	Type         string

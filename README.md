@@ -10,11 +10,6 @@
 - `git clone https://github.com/rajat965ng/GaurdRails.git`
 - `cd GaurdRails`
 
-## Execute the unit test cases
-- `go test ./service`
-- `go test ./dao`
-
-![](.README_images/d5cba436.png)
 
 ## Start the application on port 8080
 - `go run main.go`
@@ -53,3 +48,9 @@
 - `curl -X 'GET' \ 'http://localhost:8080/api/v1/repository/SUCCESS' \ -H 'accept: application/json'`
 
 ![](.README_images/267a9ee5.png)
+
+## Execute the unit test cases
+- `go test ./service`
+- `go test ./dao`
+
+![](.README_images/d5cba436.png)
